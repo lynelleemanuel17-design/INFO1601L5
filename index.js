@@ -1,33 +1,25 @@
-let arr = [12, 33, 4, 5, -4, 8, 19, 25];
-
-// map() creates a new array from the elements of one without changing the old one
-function double(num){
-  return num * 2;
+function createPerson(name, height, weight) {
+  return { name: name, height: height, weight: weight };
 }
 
-let doubledArr = arr.map(double); 
-console.log(doubledArr);
-
-function isOdd(num){
-  return num % 2 !== 0; 
+function calcBMI(weight, height) {
+  return weight / (height * height);
 }
 
-// Filter takes a test condition and returns only the element which make the condition true
-let odds = arr.filter(isOdd);
-console.log(odds);
+function avgBMI(people) {
+  let sum = 0;
 
-// Returns true or false if any of the elements of the array meets a specified condition
-function has5Factor(ele){
-  return ele % 5 === 0;
+  for (let person of people) {
+    sum += calcBMI(person.weight, person.height);
+  }
+
+  return sum / people.length;
 }
 
-let hasFiveFactor = arr.some(has5Factor);
-console.log(hasFiveFactor);
+let people = [
+  createPerson("Sally", 1.6, 60),
+  createPerson("Ben", 1.81, 81),
+  createPerson("Shelly", 1.5, 50)
+];
 
-function intCompare(a, b){
- return a - b;
-}
-
-// sort function must return either 0, +ve, -ve
-let ascending = arr.sort(intCompare);
-console.log(ascending);
+console.log(avgBMI(people));
