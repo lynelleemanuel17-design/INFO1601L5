@@ -1,9 +1,11 @@
-// Declaring variables
-let radius = 7;
-const pi = 3.14;
+let name = "bob";
+let age = 24;
 
-// Calculating the area of a circle
-let area = radius * radius * pi;
+console.log(typeof(name)) // string
+console.log(typeof(age)) // number
 
-// Display the result
-console.log(area);
+console.log(`Hello my name is ${name}, I'm ${age} years old`);
+// Hello my name is bob, I'm 24 years old.
+
+console.log(`I was born in ${2020 - age}`)
+// I was born in 1996
